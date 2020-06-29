@@ -1,0 +1,183 @@
+.menu
+  display: block
+  position: relative
+  width: 85%
+  background-color: $light
+  height: calc(100vh - 75px)
+  transform: scaleY(0)
+  transform-origin: top
+  overflow-y: scroll
+  transition: transform .5s ease
+
+  @include breakpoint(lg)
+    display: flex
+    align-items: center
+    height: auto
+    overflow-y: visible
+    width: 100%
+    transform: scaleY(1)
+
+  ul
+    list-style: none
+    padding: 0
+    height: 100%
+    font-family: 'Roboto Slab', serif
+    text-transform: capitalize
+
+  &.visible
+    display: block
+    transform: scaleY(1)
+    border-top: 1px solid $indigo
+
+  &__main-element
+    list-style: none
+    display: block
+    margin: 0
+    padding: 0
+    position: relative
+    height: auto !important
+
+    @include breakpoint(lg)
+      display: flex
+      height: 100% !important
+
+    li
+      display: block
+
+      @include breakpoint(lg)
+        display: flex
+        align-items: center
+
+      &:hover, &:focus
+        background-color: white
+
+        @include breakpoint(lg)
+          > .sub-menu
+            display: block
+
+  &__item-wrapper
+    width: 100%
+    display: flex
+
+    &.open
+      border-bottom: 1px solid $indigo
+
+    @include breakpoint(lg)
+      padding:
+        right: 20px
+
+  &__item-image
+    max-height: 100px
+    height: auto
+    margin:
+      left: 15px
+
+  &__item-content
+    margin-left: 15px
+    flex-basis: 100%
+
+    p
+      margin: 0
+
+  &__link
+    display: block
+    text-decoration: none
+    color: $indigo
+    padding: 15px
+
+    &:hover, &:focus
+      color: $slate-gray
+      font-weight: bold
+      background-color: white
+
+  &__sub-menu-toggle
+    border: none
+    background-color: transparent
+    width: 50px
+    height: 50px
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &:after
+      content: ""
+      position: relative
+      display: block
+      width: 20px
+      height: 20px
+      background:
+        image: url('../images/down.svg')
+        position: center center
+        repeat: no-repeat
+        size: contain
+
+    &.flipped
+
+      &:after
+        transform: rotate(180deg)
+
+    @include breakpoint(lg)
+      display: none
+
+  .sub-menu
+    display: none
+    background-color: white
+
+    @include breakpoint(lg)
+      position: absolute
+      max-width: 600px
+      height: fit-content
+      top: 101px
+      box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.75)
+
+    @include breakpoint(bigboi)
+      width: 100%
+
+    &:hover, &:focus
+      display: block
+
+    li
+      margin: 15px 0
+      position: relative
+
+      @include breakpoint(lg)
+
+      &:hover, &:focus
+        a
+          &:after
+            transform: rotate(45deg)
+
+      a
+        @include breakpoint(lg)
+          &:after
+            content: '→'
+            position: relative
+            margin-left: 15px
+
+      .sub-menu
+        width: 100%
+        position: relative
+        border:
+          bottom: 1px solid $indigo
+        background-color: $light
+
+        @include breakpoint(lg)
+          background-color: white
+          box-shadow: 5px 0px 10px 3px rgba(0,0,0,0.75)
+
+        li
+          padding: 5px 0
+          margin: 0
+
+        @include breakpoint(lg)
+          position: absolute
+          top: 0
+          right: -175px
+          max-width: 175px
+          border:
+            left: 1px solid $indigo
+
+    &.visible
+      display: block
+      padding:
+        left: 30px

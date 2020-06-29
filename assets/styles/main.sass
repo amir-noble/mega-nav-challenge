@@ -1,0 +1,38 @@
+@import 'mixin.scss'
+@import 'variables.sass'
+@import 'menu-container.sass'
+@import 'menu-wrapper.sass'
+@import 'menu.sass'
+
+body
+  padding: 0
+  margin: 0
+  background-color: white
+
+  &.nav-open
+    overflow: hidden
+
+main
+  max-width: 1600px
+  margin: 0 auto
+  position: relative
+
+  article
+    padding: 0px 15px
+
+  .overlay
+    height: 0
+    position: absolute
+    width: 100%
+    background: rgba(0,0,0,0.75)
+    top: -20px
+    left: 0
+
+    &.active
+      height: 100vh
+
+figure
+  text-align: center
+
+.article-img
+  max-width: 100%

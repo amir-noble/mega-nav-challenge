@@ -1,0 +1,73 @@
+.menu-container
+  max-height: 78px
+  position: fixed
+  width: 100%
+  display: block
+  background-color: $light
+  position: relative
+
+  @include breakpoint(lg)
+    display: flex
+    max-height: 100px
+    max-width: 1600px
+    position: relative
+    margin: 0 auto
+
+  &__site-logo
+    width: 75px
+    height: auto
+    padding: 0 15px
+    display: inline
+    position: relative
+    float: right
+
+    @include breakpoint(lg)
+      height: 100px
+      background-color: $light
+
+  &__menu-toggle
+    background-position: center center
+    background-repeat: no-repeat
+    width: 75px
+    height: 75px
+    background-color: transparent
+    border: none
+    transform: rotate(0deg)
+    transition: transform .5s ease
+
+    @include breakpoint(lg)
+      display: none
+
+    &.flipped
+      transform: rotate(180deg)
+
+  &__bottom-logo-container
+    position: sticky
+    bottom: 0
+    width: 100%
+    background-color: $light
+
+    @include breakpoint(lg)
+      display: none
+
+  &__bottom-logo
+    transform: scaleX(-1)
+    position: relative
+    width: 30%
+    margin: 0 auto
+    text-align: center
+    display: block
+
+  &__bottom-logo-text
+    text-align: center
+    color: $slate-gray
+    margin:
+      bottom: 15px
+    padding:
+      bottom: 15px
+    font:
+      size: 20px
+      family: 'Permanent Marker', cursive
+
+    .sub-logo
+      font-size: 16px
